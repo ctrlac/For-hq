@@ -10,6 +10,7 @@ import (
 
 func login() {
 	resp, _ := http.Get("/v1/user/login?username=admin&password=123456")
+	//TODO check account exist.....
 	defer resp.Body.Close()
 	body, _ := ioutil.ReadAll(resp.Body)
 	//fmt.Println(string(body))

@@ -31,10 +31,11 @@ type apitype struct {
 
 func main() {
 	var Apitype apitype
-	Apitype.create = "/v1/user/create"
-	Apitype.delete = "/v1/user/delete"
-	Apitype.change = "/v1/user/change"
-	Apitype.login = "/v1/user/login"
+	//http://.......
+	Apitype.create = "/user/create"
+	Apitype.delete = "/user/delete"
+	Apitype.change = "/user/change"
+	Apitype.login = "/user/login"
 
 	postWithJson(Apitype.create)
 	postWithJson(Apitype.delete)
@@ -44,7 +45,7 @@ func main() {
 }
 
 func postWithJson(ApiType string) {
-	
+
 	auths := Auth{"admin", "123456", "A123456789"}
 	ba, _ := json.Marshal(auths)
 	resp, _ := http.Post(ApiType, "application/json", bytes.NewBuffer([]byte(ba)))
